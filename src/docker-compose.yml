@@ -1,0 +1,17 @@
+services:   
+  wireshark:
+    container_name: wireshark
+    image: lscr.io/linuxserver/wireshark:4.6.1
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ./data/wireshark:/pcap_sample
+  kali:
+    container_name: kali
+    image: edugarrick/kali-exam-2
+    volumes:
+      - ./data/wireshark:/home/pcap_sample
+
